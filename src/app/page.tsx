@@ -27,7 +27,7 @@ export default function Home() {
 
   const handleSubmit = (e: any) => {
     e.preventDefault()
-    console.log(name, pin)
+    alert(’Ola ${name}’)
     setName('');
     setPin('');
 
