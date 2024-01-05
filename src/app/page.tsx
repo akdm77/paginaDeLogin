@@ -28,6 +28,7 @@ export default function Home() {
 
   const handleSubmit = (e: any) => {
     e.preventDefault()
+<<<<<<< HEAD
     if(!!name && !!pin && !!email){
       alert(`Ola ${name}`)
       setName('');
@@ -36,6 +37,11 @@ export default function Home() {
     }else{
       alert("Dados faltando ")
     }
+=======
+    alert(`Ola ${name}`)
+    setName('');
+    setPin('');
+>>>>>>> origin/main
 
   }
 
