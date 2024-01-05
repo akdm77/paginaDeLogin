@@ -17,7 +17,7 @@ export default function Home() {
     let email = e.target.value
     if(!!email){
       if(validator.isEmail(email)){
-        setEmailError("Email valido")
+        setEmailError("")
       }else{
         setEmailError("*Insira um email valido*")
     }}else{
