@@ -10,11 +10,11 @@ export default function Home() {
   
   const [name, setName] = useState<string>('');
   const [pin, setPin] = useState<string>('')
-
+  const [email, setEmail] = useState<string>()
   const [emailError, setEmailError] = useState('')
 
   const validateEmail = (e: any) => {
-    let email = e.target.value
+    setEmail(e.target.value)
     if(!!email){
       if(validator.isEmail(email)){
         setEmailError("")
@@ -23,13 +23,19 @@ export default function Home() {
     }}else{
       setEmailError("")
     }
+    
   }
 
   const handleSubmit = (e: any) => {
     e.preventDefault()
-    alert(`Ola ${name}`)
-    setName('');
-    setPin('');
+    if(!!name && !!pin && !!email){
+      alert(`Ola ${name}`)
+      setName('');
+      setPin('');
+  
+    }else{
+      alert("Dados faltando ")
+    }
 
   }
 
@@ -56,7 +62,7 @@ export default function Home() {
             <br />
             <label className="flex h-7 ">
               <span className="m-3">email:  </span>
-              <input className="flex justify-center items-center pl-3 rounded-md text-black"   name="email" type="email" placeholder="Digite seu email..." onChange={(e) => validateEmail(e)}/>
+              <input value={email} className="flex justify-center items-center pl-3 rounded-md text-black"   name="email" type="email" placeholder="Digite seu email..." onChange={(e) => validateEmail(e)}/>
             </label>
             {!!emailError && <p className="text-red-500 text-md ml-20 mt-5 font-serif">{emailError}</p>}
             <br />
